@@ -1,0 +1,26 @@
+name: 'PublishToENVIRONMENT'
+ 
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 23 * * *"
+ 
+env:
+  appVersion: 'current'
+  environmentName: 'ENVIRONMENTNAME'
+ 
+jobs:
+  Publish:
+    runs-on: [ builder ]
+    steps:
+      - name: Trigger Publish To Environment
+        uses: octokit/request-action@v2.x
+        with:
+          route: POST /repos/{owner}/{repo}/actions/workflows/{workflow_id}/dispatches
+          owner: ${{ github.repository_owner }}
+          repo: ${{ github.event.repository.name }}
+          workflow_id: PublishToEnvironment.yaml
+          ref: main
+          inputs: '{"appVersion": ${{ env.appVersion }}, "environmentName": ${{ env.environmentName}} }'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GHTOKENWORKFLOW }}
