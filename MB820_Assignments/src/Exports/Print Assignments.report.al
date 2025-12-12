@@ -45,6 +45,7 @@ report 50200 "Print Assignments"
                 {
                     field(StatusFilter; Assignment.Status)
                     {
+                        ApplicationArea = All;
                         Caption = 'Assignment Status';
                         ToolTip = 'Filter assignments by their status.';
                     }

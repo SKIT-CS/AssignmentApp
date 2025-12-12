@@ -39,7 +39,7 @@ page 50204 "Assignment Activities"
         {
             action(ActionName)
             {
-
+                ApplicationArea = All;
                 trigger OnAction()
                 begin
 

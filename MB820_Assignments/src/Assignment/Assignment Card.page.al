@@ -111,6 +111,7 @@ page 50201 "Assignment Card"
 
                 action(SetInProgressAction)
                 {
+                    ApplicationArea = All;
                     Caption = 'Set In Progress';
                     ToolTip = 'Sets the assignment status to In Progress.';
                     Image = WorkCenterLoad;
@@ -124,6 +125,7 @@ page 50201 "Assignment Card"
 
                 action(SetCompletedAction)
                 {
+                    ApplicationArea = All;
                     Caption = 'Set Completed';
                     ToolTip = 'Sets the assignment status to Completed.';
                     Image = Approve;
